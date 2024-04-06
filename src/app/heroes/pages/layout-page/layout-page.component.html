@@ -1,7 +1,46 @@
-<h1>Hero Layout</h1>
+<!-- Ponemos este container porque va a hacer el push -->
 
-<!-- Para mostrar las rutas hijas -->
-<router-outlet></router-outlet>
+<!-- Todas las clases song de Primeflex menos spacer -->
+<mat-sidenav-container fullscreen>
 
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{width: '250px'}">
+    <mat-toolbar>
+      <span>Menú</span>
+      <span class="spacer"></span>
+      <!-- toggle= método para mostrar/ocultar que viene incluido -->
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
 
-<h5>Footer</h5>
+    <mat-nav-list>
+      <mat-list-item
+      *ngFor="let item of sidebarItems"
+      [routerLink]="item.url"
+      (click)="sidenav.toggle()">
+
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        {{item.label}}
+
+      </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-buton (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="spacer"></span>
+    <button mat-button>
+      Logout
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <!-- Para mostrar las rutas hijas -->
+    <router-outlet></router-outlet>
+  </div>
+  
+</mat-sidenav-container>

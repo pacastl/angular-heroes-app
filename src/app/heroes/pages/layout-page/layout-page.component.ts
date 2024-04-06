@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class LayoutPageComponent {
 
+  // Las opciones del menu lateral se podrían poner en un archivo aparte
+  public sidebarItems = [
+    {label: 'Listado', icon: 'label', url:'./list'},
+    {label: 'Añadir', icon:'add', url: './new-hero'},
+    {label: 'Buscar', icon:'search', url:'./search'}
+  ]
 }
