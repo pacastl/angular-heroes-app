@@ -33,7 +33,9 @@
     </button>
 
     <span class="spacer"></span>
-    <button mat-button>
+
+    <span> {{ user?.email }} </span>
+    <button mat-button (click)="onLogout()">
       Logout
     </button>
   </mat-toolbar>
@@ -42,5 +44,5 @@
     <!-- Para mostrar las rutas hijas -->
     <router-outlet></router-outlet>
   </div>
-  
+
 </mat-sidenav-container>
